@@ -14,7 +14,6 @@ module.exports.handler = async (event) => {
     const user = {
       id: event.userName,
       name: screenName,
-      bio,
       createdA: new Date().toJSON(),
       followersCount: 0,
       followingCount: 0,
