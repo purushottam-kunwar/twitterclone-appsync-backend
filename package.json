@@ -1,0 +1,24 @@
+{
+  "name": "twitterclone-appsync-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sls": "sls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/purushottam-kunwar/twitterclone-appsync-backend.git"
+  },
+  "author": "pk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/purushottam-kunwar/twitterclone-appsync-backend/issues"
+  },
+  "homepage": "https://github.com/purushottam-kunwar/twitterclone-appsync-backend#readme",
+  "devDependencies": {
+    "serverless": "2.4.0",
+    "serverless-appsync-plugin": "^1.11.3"
+  }
+}
