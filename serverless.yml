@@ -8,7 +8,7 @@ plugins:
 provider:
   name: aws
   runtime: nodejs12.x
-  region: eu-west-1
+  region: ap-southeast-1
   environment:
     STAGE: ${self:custom.stage}
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1'
@@ -26,6 +26,7 @@ custom:
 functions:
   confirmUserSignup:
     handler: functions/confirm-user-signup.handler
+    iamRoleStatementsName: custom-confirm-user-signup
     environment:
       USERS_TABLE: !Ref UsersTable
     iamRoleStatements:
