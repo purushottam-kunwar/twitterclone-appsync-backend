@@ -1,2 +1,7 @@
-name: twitterclone-appsync-backend
+name: twitterclone-appsync-backend-app
 schema: schema.api.graphql
+authenticationType: AMAZON_COGNITO_USER_POOLS
+userPoolConfig:
+  awsRegion: ap-south-1
+  defaultAction: ALLOW
+  userPoolId: !Ref CognitoUserPool
