@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "sls": "sls",
     "exportEnv": "sls export-env",
+    "test": "jest --verbose ./__tests__/test_cases/unit",
     "integration-test": "jest --verbose ./__tests__/test_cases/integration",
     "e2e-test": "jest --verbose ./__tests__/test_cases/e2e"
   },
@@ -22,6 +22,8 @@
   "homepage": "https://github.com/purushottam-kunwar/twitterclone-appsync-backend#readme",
   "devDependencies": {
     "@types/jest": "^26.0.23",
+    "amplify-appsync-simulator": "^1.27.0",
+    "amplify-velocity-template": "^1.4.5",
     "aws-sdk": "^2.930.0",
     "dotenv": "^10.0.0",
     "jest": "^27.0.4",
