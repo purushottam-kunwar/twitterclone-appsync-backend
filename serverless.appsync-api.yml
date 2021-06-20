@@ -1,4 +1,4 @@
-name: twitterclone-appsync-backend-app
+name: appsyncmasterclass
 schema: schema.api.graphql
 authenticationType: AMAZON_COGNITO_USER_POOLS
 userPoolConfig:

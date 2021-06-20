@@ -4,9 +4,9 @@ schema {
 }
 
 type Query {
-  getImageUploadUrl(extension: String!, contentType: String): AWSURL!
+  getImageUploadUrl(extension: String, contentType: String): AWSURL!
 
-  getMyTimeline(limit: Int!, nextToken: String!): TweetsPage!
+  getMyTimeline(limit: Int!, nextToken: String): TweetsPage!
 
   getMyProfile: MyProfile!
 
@@ -34,7 +34,7 @@ type Mutation {
 
   unretweet(tweetId: ID!): Boolean!
 
-  reply(tweetId: ID!, text: String): Reply!
+  reply(tweetId: ID!, text: String!): Reply!
 
   follow(userId: ID!): Boolean!
 
@@ -46,9 +46,9 @@ input ProfileInput {
   imageUrl: AWSURL
   backgroundImageUrl: AWSURL
   bio: String
-  location: String!
+  location: String
   website: AWSURL
-  birthday: AWSDate
+  birthdate: AWSDate
 }
 
 interface IProfile {
@@ -58,15 +58,15 @@ interface IProfile {
   imageUrl: AWSURL
   backgroundImageUrl: AWSURL
   bio: String
-  location: String!
+  location: String
   website: AWSURL
-  birthday: AWSDate
+  birthdate: AWSDate
   createdAt: AWSDateTime!
-  tweets: TweetsPage
+  tweets: TweetsPage!
   followersCount: Int!
   followingCount: Int!
   tweetsCount: Int!
-  likeCount: Int!
+  likesCounts: Int!
 }
 
 type MyProfile implements IProfile {
@@ -76,15 +76,15 @@ type MyProfile implements IProfile {
   imageUrl: AWSURL
   backgroundImageUrl: AWSURL
   bio: String
-  location: String!
+  location: String
   website: AWSURL
-  birthday: AWSDate
+  birthdate: AWSDate
   createdAt: AWSDateTime!
-  tweets: TweetsPage
+  tweets: TweetsPage!
   followersCount: Int!
   followingCount: Int!
   tweetsCount: Int!
-  likeCount: Int!
+  likesCounts: Int!
 }
 
 type OtherProfile implements IProfile {
@@ -94,15 +94,15 @@ type OtherProfile implements IProfile {
   imageUrl: AWSURL
   backgroundImageUrl: AWSURL
   bio: String
+  location: String
   website: AWSURL
-  location: String!
-  birthday: AWSDate
+  birthdate: AWSDate
   createdAt: AWSDateTime!
-  tweets: TweetsPage
+  tweets: TweetsPage!
   followersCount: Int!
   followingCount: Int!
   tweetsCount: Int!
-  likeCount: Int!
+  likesCounts: Int!
   following: Boolean!
   followedBy: Boolean!
 }
@@ -130,7 +130,7 @@ type Reply implements ITweet {
   profile: IProfile!
   createdAt: AWSDateTime!
   inReplyToTweet: ITweet!
-  inReplyToUsers: [IProfile]!
+  inReplyToUsers: [IProfile!]
   text: String!
   replies: Int!
   likes: Int!
@@ -148,10 +148,10 @@ type Retweet implements ITweet {
 
 type TweetsPage {
   tweets: [ITweet!]
-  nextToken: String!
+  nextToken: String
 }
 
 type ProfilesPage {
   profiles: [IProfile!]
-  nextToken: String!
+  nextToken: String
 }
